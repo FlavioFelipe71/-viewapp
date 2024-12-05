@@ -2,12 +2,68 @@
 <html>
 <head>
     <title>Fleshviewapp</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
     <h1>Bem-vindo ao Fleshviewapp</h1>
-    <p>Este site requer execução local. Para rodar o projeto, siga as instruções abaixo:</p>
+    <p>Este site é uma interface para rodar o Fleshviewapp localmente.</p>
+
+    <h2>Instruções</h2>
+    <p>Para executar o programa, siga os passos abaixo:</p>
     <pre>
-        $ flask --app Fleshviewapp executar
+1. Baixe e instale o Python.
+2. Clone este repositório:
+   git clone https://github.com/flaviofelipe71/-viewapp.git
+   cd -viewapp
+3. Instale os requisitos:
+   pip install -r requirements.txt
+4. Execute o comando:
+   flask --app Fleshviewapp executar
+5. Abra no navegador:
+   http://localhost:5000
     </pre>
+
+    <h2>Ou clique no botão para baixar o script:</h2>
+    <button onclick="downloadScript()">Baixar Script</button>
+
+    <script>
+        function downloadScript() {
+            const element = document.createElement('a');
+            const file = new Blob(
+                [`#!/bin/bash
+git clone https://github.com/flaviofelipe71/-viewapp.git
+cd -viewapp
+pip install -r requirements.txt
+flask --app Fleshviewapp executar`],
+                { type: 'text/plain' }
+            );
+            element.href = URL.createObjectURL(file);
+            element.download = 'run_fleshviewapp.sh';
+            document.body.appendChild(element);
+            element.click();
+        }
+    </script>
 </body>
 </html>
